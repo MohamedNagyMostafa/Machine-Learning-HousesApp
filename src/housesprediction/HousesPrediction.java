@@ -17,10 +17,21 @@ public class HousesPrediction {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Function<Double[], Double> house = null;
-        Double[] data = new Double[]{101.0, 3.0};
-        double predicted x 
+        // Testing Phase One.
+        
+        double[] thetaVector = new double[]{1.004579, 5.286822};// expected theatas value.
+        // size.
+        
+        RegressionLearningMethod regressionLearningMethod = new RegressionLearningMethod(thetaVector);
+        
+        Double[] data = new Double[]{1.0, 1330.0};
+        final double exactPrice = 6500000;
+        
+        double prediction = regressionLearningMethod.apply(data) * 1000;
+        
+        System.out.println("predicted :" + prediction + " , expected " + exactPrice );
+        System.out.println("error : " + Math.abs(prediction - exactPrice));
+        
         
     }
     
