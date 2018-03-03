@@ -18,7 +18,7 @@ public class MachineLearningUtils {
     
     public static double cost(Function<Double[], Double> targetFunction, List<Double[]> dataSet, List<Double> exactData, int startPoint){
         if(startPoint < exactData.size()){
-            return (1.0/(2*dataSet.get(startPoint).length)) 
+            return (1.0/(2*dataSet.size())) 
                     * Math.pow(targetFunction.apply(dataSet.get(startPoint)) - exactData.get(startPoint), 2)
                     + cost(targetFunction, dataSet, exactData, ++startPoint);
         }else{

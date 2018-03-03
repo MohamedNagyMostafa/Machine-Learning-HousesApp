@@ -5,6 +5,9 @@
  */
 package housesprediction;
 
+import java.util.List;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -62,6 +65,26 @@ public class HousesPrediction {
         System.out.println("error6 : " + Math.abs(prediction6 - exactPrice6));
         System.out.println("predicted7 :" + prediction7 + " , expected7 " + exactPrice7 );
         System.out.println("error7 : " + Math.abs(prediction7 - exactPrice7));
+        // Calculate cost.
+        List<Double[]> dataSet = new ArrayList<>();
+        dataSet.add(data1);
+        dataSet.add(data2);
+        dataSet.add(data3);
+        dataSet.add(data4);
+        dataSet.add(data5);
+        dataSet.add(data6);
+        dataSet.add(data7);
+       
+        List<Double> exactData = new ArrayList<>();
+        exactData.add(exactPrice1);
+        exactData.add(exactPrice2);
+        exactData.add(exactPrice3);
+        exactData.add(exactPrice4);
+        exactData.add(exactPrice5);
+        exactData.add(exactPrice6);
+        exactData.add(exactPrice7);
+        double cost = MachineLearningUtils.cost(regressionLearningMethod, dataSet, exactData, 0);
+        System.out.println("cost : "+ cost);
     }
     
 }
