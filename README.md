@@ -1,13 +1,13 @@
 <h1> House Price Machine Learning Model </h1>
-<h3>Description</h3>
+<h2>Description</h2>
   <ul>
     <li>
       Machine learning model is used to get the accurate prediction for house's price using linear regression model using house size, age and rooms size as feature vector.
     </li>
   </ul>
   
-<h3>WorkFlow</h3>
-<h2>First Observation</h2>
+<h2>WorkFlow</h2>
+<h3>First Observation</h3>
 <ul>
   <li>
     <p>Test by using constant appropriate values for theta and one feature vector (Size)</p>
