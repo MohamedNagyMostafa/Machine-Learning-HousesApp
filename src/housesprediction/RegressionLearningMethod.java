@@ -33,7 +33,7 @@ public class RegressionLearningMethod implements Function<Double[], Double>{
         if(mover < THETA_VECTOR.length){
             return (featureVector[mover]* THETA_VECTOR[mover])+ linearRegression(featureVector, mover + 1);
         }else{
-            return 0.0;
+            return 0.0f;
         }
     }
     

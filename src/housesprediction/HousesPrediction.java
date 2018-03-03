@@ -85,6 +85,14 @@ public class HousesPrediction {
         exactData.add(exactPrice7);
         double cost = MachineLearningUtils.cost(regressionLearningMethod, dataSet, exactData, 0);
         System.out.println("cost : "+ cost);
+        
+        // set train.
+        for(int i = 0;i<30;i++){
+            regressionLearningMethod = MachineLearningUtils.train(regressionLearningMethod, dataSet, exactData,0.0002);
+        }
+
+       
+
     }
     
 }
