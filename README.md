@@ -16,7 +16,7 @@
     <br/>
     <img src="https://i.imgur.com/fBOLTD4l.png"/>
     <br/>
-    <p><b>Full observation</b></p>
+    <h4>Full observation</h4>
     <br/>
     <img src="https://i.imgur.com/zof3wFo.png"/>
     <br/>
