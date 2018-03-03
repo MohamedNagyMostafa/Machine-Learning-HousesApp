@@ -31,7 +31,7 @@ public class RegressionLearningMethod implements Function<Double[], Double>{
     
     private double linearRegression(Double [] featureVector, int mover){
         if(mover < THETA_VECTOR.length){
-            return (featureVector[mover]* THETA_VECTOR[mover])+ linearRegression(featureVector, ++mover);
+            return (featureVector[mover]* THETA_VECTOR[mover])+ linearRegression(featureVector, mover + 1);
         }else{
             return 0.0;
         }
