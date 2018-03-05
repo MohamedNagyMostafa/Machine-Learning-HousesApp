@@ -33,15 +33,14 @@ public class MachineLearningUtils {
         double[] newThetaList = new double[thetaNumber];
         
         for(int i = 0; i < thetaNumber; i++){
-            newThetaList[i] = regressionLearningMethod.getThetas()[i] - ((alpha/dataSet.size()) * 
+            newThetaList[i] = regressionLearningMethod.getThetas()[i] + ((alpha/dataSet.size()) * 
                     errorMultiplyFeatureVector(regressionLearningMethod, dataSet, exactData, i, 0));
-            System.out.println("done new theta"+i+" is "+ newThetaList[i]);
         }
         return new RegressionLearningMethod(newThetaList);
         
     }
     
-    /**
+   /**
      * This Method calculate Σ(hθ(x.i)-Y.i)
      * @return 
      */
@@ -54,4 +53,5 @@ public class MachineLearningUtils {
             return 0;
         }
     }
+    
 }
