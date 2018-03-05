@@ -87,9 +87,24 @@ public class HousesPrediction {
         double error = exactData.get(0) - prediction1;
         System.out.println("error " + error);
         // set train.
+        List<Double> errors = new ArrayList<>();
         for(int i = 0 ;i< 1000;i++){
             regressionLearningMethod = MachineLearningUtils.train(regressionLearningMethod, dataSet, exactData,0.00000001);
+            errors.add(Math.abs(MachineLearningUtils.error(regressionLearningMethod, dataSet, exactData, 0)/dataSet.size()));
         }
+        
+        // set Errors for python
+        System.out.println("[");
+        for(int i = 0; i < 1000;i++){
+            System.out.println(i+",");
+
+        }
+        System.out.println("],");
+        System.out.println("[");
+        for(int i = 0; i < 1000;i++){
+            System.out.println(errors.get(i)+",");
+        }
+        System.out.println("],");
  
         cost = MachineLearningUtils.cost(regressionLearningMethod, dataSet, exactData, 0);
         System.out.println("cost : "+ getNumber(cost));
