@@ -21,8 +21,7 @@ public class HousesPrediction {
     public static void main(String[] args) {
         // Testing Phase One.
         
-        double[] thetaVector = new double[]{0, 0};// expected theatas value.
-        final int FACTOR = 1000;
+        double[] thetaVector = new double[]{0.1, 0.1};// expected theatas value.
         // size.
         
         RegressionLearningMethod regressionLearningMethod = new RegressionLearningMethod(thetaVector);
@@ -43,13 +42,13 @@ public class HousesPrediction {
         final double exactPrice6 = 1986000;
         final double exactPrice7 = 2338000;
         
-        double prediction1 = regressionLearningMethod.apply(data1) ;
-        double prediction2 = regressionLearningMethod.apply(data2) ;
-        double prediction3 = regressionLearningMethod.apply(data3) ;
-        double prediction4 = regressionLearningMethod.apply(data4) ;
-        double prediction5 = regressionLearningMethod.apply(data5) ;
-        double prediction6 = regressionLearningMethod.apply(data6) ;
-        double prediction7 = regressionLearningMethod.apply(data7) ;
+        double prediction1 = regressionLearningMethod.apply(data1);
+        double prediction2 = regressionLearningMethod.apply(data2);
+        double prediction3 = regressionLearningMethod.apply(data3);
+        double prediction4 = regressionLearningMethod.apply(data4);
+        double prediction5 = regressionLearningMethod.apply(data5);
+        double prediction6 = regressionLearningMethod.apply(data6);
+        double prediction7 = regressionLearningMethod.apply(data7);
 
         System.out.println("predicted1 :" + prediction1 + " , expected1 " + exactPrice1 );
         System.out.println("error1 : " + Math.abs(prediction1 - exactPrice1));
@@ -88,8 +87,9 @@ public class HousesPrediction {
         double error = exactData.get(0) - prediction1;
         System.out.println("error " + error);
         // set train.
-        for(int i = 0 ;i< 1;i++)
-            regressionLearningMethod = MachineLearningUtils.train(regressionLearningMethod, dataSet, exactData,0.01);
+        for(int i = 0 ;i< 1000;i++){
+            regressionLearningMethod = MachineLearningUtils.train(regressionLearningMethod, dataSet, exactData,0.00000001);
+        }
  
         cost = MachineLearningUtils.cost(regressionLearningMethod, dataSet, exactData, 0);
         System.out.println("cost : "+ getNumber(cost));
@@ -102,20 +102,14 @@ public class HousesPrediction {
         prediction6 = regressionLearningMethod.apply(data6) ;
         prediction7 = regressionLearningMethod.apply(data7) ;
 
-        System.out.println("predicted1 :" + getNumber(prediction1) + " , expected1 " + getNumber(exactPrice1) );
-        System.out.println("error1 : " + getNumber(Math.abs(prediction1 - exactPrice1)));
-        System.out.println("predicted2 :" + getNumber(prediction2) + " , expected2 " + getNumber(exactPrice2) );
-        System.out.println("error2 : " + getNumber(Math.abs(prediction2 - exactPrice2)));
-        System.out.println("predicted3 :" + getNumber(prediction3) + " , expected3 " + getNumber(exactPrice3) );
-        System.out.println("error3 : " + getNumber(Math.abs(prediction3 - exactPrice3)));
-        System.out.println("predicted4 :" + getNumber(prediction4) + " , expected4 " + getNumber(exactPrice4) );
-        System.out.println("error4 : " + getNumber(Math.abs(prediction4 - exactPrice4)));
-        System.out.println("predicted5 :" + getNumber(prediction5) + " , expected5 " + getNumber(exactPrice5) );
-        System.out.println("error5 : " + getNumber(Math.abs(prediction5 - exactPrice5)));
-        System.out.println("predicted6 :" + getNumber(prediction6) + " , expected6 " + getNumber(exactPrice6) );
-        System.out.println("error6 : " + getNumber(Math.abs(prediction6 - exactPrice6)));
-        System.out.println("predicted7 :" + getNumber(prediction7) + " , expected7 " + getNumber(exactPrice7) );
-        System.out.println("error7 : " + getNumber(Math.abs(prediction7 - exactPrice7)));
+        System.out.println(getNumber(prediction1) + "/ factor,");
+        System.out.println(getNumber(prediction2) + "/ factor,");
+        System.out.println(getNumber(prediction3) + "/ factor,");
+        System.out.println(getNumber(prediction4) + "/ factor,");
+        System.out.println(getNumber(prediction5) + "/ factor,");
+        System.out.println(getNumber(prediction6) + "/ factor,");
+        System.out.println(getNumber(prediction7) + "/ factor,");
+       
     }
     
     private static String getNumber(double num){

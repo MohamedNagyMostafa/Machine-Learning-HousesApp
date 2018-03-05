@@ -16,13 +16,12 @@ public class RegressionLearningMethod implements Function<Double[], Double>{
     private final double [] THETA_VECTOR;
     
     public RegressionLearningMethod(double []thetaVector){
-        THETA_VECTOR = Arrays.copyOf(thetaVector, thetaVector.length);
+        THETA_VECTOR = thetaVector;
     }
     
     @Override
     public Double apply(Double[] featureVector) {
         assert featureVector[0] == 1.0;
-        
         double prediction = 0;
         prediction = linearRegression(featureVector, (int)prediction);
         

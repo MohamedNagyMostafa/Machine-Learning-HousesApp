@@ -33,7 +33,8 @@ public class MachineLearningUtils {
         double[] newThetaList = new double[thetaNumber];
         
         for(int i = 0; i < thetaNumber; i++){
-            newThetaList[i] = regressionLearningMethod.getThetas()[i] + ((alpha/dataSet.size()) * 
+
+            newThetaList[i] = regressionLearningMethod.getThetas()[i] - ((alpha/dataSet.size()) * 
                     errorMultiplyFeatureVector(regressionLearningMethod, dataSet, exactData, i, 0));
         }
         return new RegressionLearningMethod(newThetaList);
@@ -47,8 +48,22 @@ public class MachineLearningUtils {
     public static double errorMultiplyFeatureVector(RegressionLearningMethod regressionLearningMethod, List<Double[]> dataSet,
             List<Double> exactData, int vector, int startPoint){
         if(startPoint < dataSet.size()){
-            return (regressionLearningMethod.apply(dataSet.get(startPoint)) - exactData.get(startPoint)) * dataSet.get(startPoint)[vector] +
+            return ((regressionLearningMethod.apply(dataSet.get(startPoint))) - exactData.get(startPoint)) * dataSet.get(startPoint)[vector] +
                     errorMultiplyFeatureVector(regressionLearningMethod, dataSet, exactData, vector, startPoint + 1);
+        }else{
+            return 0;
+        }
+    }
+    
+    /**
+     * This Method calculate Σ(hθ(x.i)-Y.i)
+     * @return 
+     */
+    public static double error(RegressionLearningMethod regressionLearningMethod, List<Double[]> dataSet,
+            List<Double> exactData, int startPoint){
+        if(startPoint < dataSet.size()){
+            return ((regressionLearningMethod.apply(dataSet.get(startPoint))) - exactData.get(startPoint))+
+                    error(regressionLearningMethod, dataSet, exactData, startPoint + 1);
         }else{
             return 0;
         }
