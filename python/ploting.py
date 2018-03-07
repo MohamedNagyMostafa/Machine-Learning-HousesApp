@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-plt.title("mintues visited pass")
+plt.title("Iteration (7b)")
 factor = 1000
 plt.plot( 90, 249000/ factor, "ro")
 plt.plot( 101,338000/ factor,  "ro")
@@ -16,12 +16,13 @@ plt.ylabel('Price 1000s (Euro)')
 plt.axis([0,1400,0,8000000/ factor])
 
 plt.plot([90, 101, 200,500,650,900,1330],
-	[181652.6301/ factor, 
-	203653.134890000021/ factor,
-	401657.678/ factor,
-	1001671.4450000001/ factor,
-	1301678.3284999998/ factor,
-	1801689.801/ factor,
-	2661709.5336999996/ factor])
+	[360261.087932185440/ factor,
+363048.131562411140/ factor,
+402502.217952793460/ factor,
+680018.920337481400/ factor,
+907851.819370845200/ factor,
+1419535.610857591500/ factor,
+2685489.477232783000/ factor,])
 #plt.figure() #separete hist
+
 plt.show()

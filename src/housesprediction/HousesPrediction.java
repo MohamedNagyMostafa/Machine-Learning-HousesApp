@@ -21,18 +21,26 @@ public class HousesPrediction {
     public static void main(String[] args) {
         // Testing Phase One.
         
-        double[] thetaVector = new double[]{0.1, 0.1};// expected theatas value.
+        double[] thetaVector = new double[]{0.1, 0.1,0.1};// expected theatas value.
         // size.
         
         RegressionLearningMethod regressionLearningMethod = new RegressionLearningMethod(thetaVector);
         
-        Double[] data1 = new Double[]{1.0, 90.0};
-        Double[] data2 = new Double[]{1.0, 101.0};
-        Double[] data3 = new Double[]{1.0, 200.0};
-        Double[] data4 = new Double[]{1.0, 500.0};
-        Double[] data5 = new Double[]{1.0, 650.0};
-        Double[] data6 = new Double[]{1.0, 900.0};
-        Double[] data7 = new Double[]{1.0, 1330.0};
+//        Double[] data1 = new Double[]{1.0, 90.0, 2.0, 1.0};
+//        Double[] data2 = new Double[]{1.0, 101.0, 2.0, 0.5};
+//        Double[] data3 = new Double[]{1.0, 200.0, 4.0, 3.0};
+//        Double[] data4 = new Double[]{1.0, 500.0, 3.0, 1.5};
+//        Double[] data5 = new Double[]{1.0, 650.0, 5.0, 3.0};
+//        Double[] data6 = new Double[]{1.0, 900.0, 6.0, 4.0};
+//        Double[] data7 = new Double[]{1.0, 1330.0, 8.0, 2.0};
+        
+        Double[] data1 = new Double[]{1.0, 90.0, 90.0} ;
+        Double[] data2 = new Double[]{1.0, 101.0, 101.0};
+        Double[] data3 = new Double[]{1.0, 200.0, 200.0};
+        Double[] data4 = new Double[]{1.0, 500.0, 500.0};
+        Double[] data5 = new Double[]{1.0, 650.0, 650.0};
+        Double[] data6 = new Double[]{1.0, 900.0, 900.0};
+        Double[] data7 = new Double[]{1.0, 1330.0, 1330.0};
         
         final double exactPrice1 = 249000;
         final double exactPrice2 = 338000;
@@ -87,6 +95,35 @@ public class HousesPrediction {
         double error = exactData.get(0) - prediction1;
         System.out.println("error " + error);
         // set train.
+        for(int j = 0;j< 10; j++){
+            long i;
+            if(j == 0)
+                i = 0;
+            else
+                i = 2000000000l;
+            for( ;i< 3000000000l + j;i++){
+            regressionLearningMethod = MachineLearningUtils.train(regressionLearningMethod, dataSet, exactData,0.000000001);
+            }
+              prediction1 = regressionLearningMethod.apply(data1) ;
+            prediction2 = regressionLearningMethod.apply(data2) ;
+            prediction3 = regressionLearningMethod.apply(data3) ;
+            prediction4 = regressionLearningMethod.apply(data4) ;
+            prediction5 = regressionLearningMethod.apply(data5) ;
+            prediction6 = regressionLearningMethod.apply(data6) ;
+            prediction7 = regressionLearningMethod.apply(data7) ;
+
+            System.out.println(getNumber(prediction1) + "/ factor,");
+            System.out.println(getNumber(prediction2) + "/ factor,");
+            System.out.println(getNumber(prediction3) + "/ factor,");
+            System.out.println(getNumber(prediction4) + "/ factor,");
+            System.out.println(getNumber(prediction5) + "/ factor,");
+            System.out.println(getNumber(prediction6) + "/ factor,");
+            System.out.println(getNumber(prediction7) + "/ factor,");
+            System.out.println("---------------------" + j +"----------------------");
+        }
+        
+        //0.000000001
+        /**
         List<Double> errors = new ArrayList<>();
         for(int i = 0 ;i< 1000;i++){
             regressionLearningMethod = MachineLearningUtils.train(regressionLearningMethod, dataSet, exactData,0.00000001);
@@ -105,25 +142,11 @@ public class HousesPrediction {
             System.out.println(errors.get(i)+",");
         }
         System.out.println("],");
- 
-        cost = MachineLearningUtils.cost(regressionLearningMethod, dataSet, exactData, 0);
-        System.out.println("cost : "+ getNumber(cost));
+        **/
+//        cost = MachineLearningUtils.cost(regressionLearningMethod, dataSet, exactData, 0);
+//        System.out.println("cost : "+ getNumber(cost));
         
-        prediction1 = regressionLearningMethod.apply(data1) ;
-        prediction2 = regressionLearningMethod.apply(data2) ;
-        prediction3 = regressionLearningMethod.apply(data3) ;
-        prediction4 = regressionLearningMethod.apply(data4) ;
-        prediction5 = regressionLearningMethod.apply(data5) ;
-        prediction6 = regressionLearningMethod.apply(data6) ;
-        prediction7 = regressionLearningMethod.apply(data7) ;
-
-        System.out.println(getNumber(prediction1) + "/ factor,");
-        System.out.println(getNumber(prediction2) + "/ factor,");
-        System.out.println(getNumber(prediction3) + "/ factor,");
-        System.out.println(getNumber(prediction4) + "/ factor,");
-        System.out.println(getNumber(prediction5) + "/ factor,");
-        System.out.println(getNumber(prediction6) + "/ factor,");
-        System.out.println(getNumber(prediction7) + "/ factor,");
+      
        
     }
     
