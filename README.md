@@ -22,4 +22,21 @@
     <br/>
   </li>
 </ul>
-  
+<h3>Second Observation</h3>
+<ul>
+  <li>
+    <p>Starting to use machine learning training by gradient descent algorithm <b>using only house's size as a feature vector</b></p>
+    <img src="https://i.imgur.com/gMPXYXZ.png" />
+    <img src="https://i.imgur.com/kCTi2Xa.png" />
+    <img src="https://i.imgur.com/FBOVnmA.png" />
+    <img src="https://i.imgur.com/ltEZx0e.png" />
+    <img src="https://i.imgur.com/13evvhT.png" />
+    <img src="https://i.imgur.com/bl9EWxC.png" />
+    <img src="https://i.imgur.com/Uts1vzY.png" />
+  </li>
+  <li>
+    <p>Graph shows the error life cycle during machine training</p>
+    <br />
+    <img src="https://i.imgur.com/MlqCVZl.png"/>
+  </li>
+</ul>
