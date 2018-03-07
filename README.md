@@ -40,3 +40,24 @@
     <img src="https://i.imgur.com/MlqCVZl.png"/>
   </li>
 </ul>
+<h3>Third Observation</h3>
+<ul>
+  <li>
+    <p>Make prediction more accurate and avoid linear prediction using <b>Polynomial of linear regression</b> but without scaling</p> 
+    <img src="https://i.imgur.com/LlxCGPZ.jpg"/>
+    <p>The prediction line start to bend through the exact data</p>
+    <img src="https://i.imgur.com/xsIdM34.png"/>
+    <img src="https://i.imgur.com/HGsS9Zs.png"/>
+    <img src="https://i.imgur.com/k3kuXgo.png"/>
+    <img src="https://i.imgur.com/sSr22Ci.png"/>
+    <img src="https://i.imgur.com/bFL7HlT.png"/>
+    <img src="https://i.imgur.com/0gfZt9y.png"/>
+    <img src="https://i.imgur.com/u2ZxChO.png"/>
+    <img src="https://i.imgur.com/k3RlzAO.png"/>
+    <img src="https://i.imgur.com/rJveo4V.png"/>
+    <img src="https://i.imgur.com/kJvYV1a.png"/>
+    <img src="https://i.imgur.com/a1zvJ6E.png"/>
+    <img src="https://i.imgur.com/ce4jeQW.png"/>
+  </li>
+</ul>
+  
